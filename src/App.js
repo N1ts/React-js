@@ -1,16 +1,34 @@
+import "./App.css"
 import AnimalShow from './AnimalShow';
+import {useState} from 'react';
 
-const handleClick = ()=>{
-    console.log("Button was clicked!")
+const getRandomAnimal = ()=>{
+    // getting a random animal from the animals array
+    let animals = ['bird', 'cat', 'dog', 'gator', 'horse']
+    return animals[Math.floor(Math.random()*animals.length)]
 }
 
 function App(){
+    const [animals, setAnimals] = useState([])
+
+    const handleClick = ()=>{
+        setAnimals([...animals, getRandomAnimal()])
+    }
+
+    const renderedAnimals = animals.map((animal, index)=>{
+        // with each iteration AnimalShow component will be called with a new {type} props
+        // parent to child communication
+        return <AnimalShow type = {animal} key={index} />
+    })
+
     return (
         <> 
-            <button  onClick={handleClick} style={{border:"2px solid", backgroundColor:"white", width: "100px", height: "30px", borderRadius: "5px", marginBottom: "20px"}}>Add Animal</button>    
+        <div className='app'>
+            <button onClick={handleClick} className="btn">Add Animal</button>    
             <div>
-                <AnimalShow />
+                <div className="animal-list">{renderedAnimals}</div>
             </div>
+        </div>
         </>
         
     )

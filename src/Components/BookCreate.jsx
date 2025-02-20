@@ -1,4 +1,5 @@
 import { useState } from "react"
+// import '../App.css'
 
 function BookCreate({onCreate}){
     const [value, setValue] = useState('')
@@ -17,16 +18,17 @@ function BookCreate({onCreate}){
     }
 
     return(
-        <div>
+        <div className="book-container">
             <form onSubmit = {handleSubmit}>
-            <h3>Add a Book</h3>
-            <h5>Title</h5>
-            <input value={value} onChange={handleChange}/>
-            <div>
+            <h2 style={{color: "brown"}}>Add a Book</h2>
+            <h4 style={{fontSize: "20px"}}>Title</h4>
+            <input value={value} onChange={handleChange} className="input-container"/>
+            <div className="button">
             <button>Submit</button>
             </div>
             </form>
         </div>
+        
     )
 }
 

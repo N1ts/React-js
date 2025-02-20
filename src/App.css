@@ -1,0 +1,42 @@
+.app{
+    text-align: center;
+    
+}
+
+
+.book-container{
+    text-align: center;
+    justify-content: center;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    
+}
+
+h4{
+    color: rgb(33, 168, 212);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.input-container{
+    width: 200px;
+}
+
+.button{
+    margin-top: 10px;
+}
+
+.booklist{
+    padding: 10px;
+    border: 1px solid brown;
+    height: 120px;
+    width: 120px;
+    margin: auto;
+}
+
+.booklist-title{
+    margin-top: 60px;
+    font-size: 20px;
+    font-weight: 500;
+}

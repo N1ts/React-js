@@ -14,7 +14,7 @@ function App(){
         const id = getRandomInt()
         const updatedBooks = [...books, {id: id, title: title}]
         setBooks(updatedBooks)
-        console.log(books)
+        console.log("create-title", books)
     }
 
     const deleteBookById = (id)=>{
@@ -26,11 +26,28 @@ function App(){
         setBooks(deletedBook)
     }
 
+    const editBookById = (id, title)=>{
+        console.log("edit book id:" , id, title)
+        const loopBooks = books.map((book)=>{
+            if(book.id==id){
+                console.log("matched", id)
+                const updatedBook = [{...books, title: title}]
+                console.log("updatedBook", updatedBook)
+                setBooks(updatedBook)
+            }
+        })
+        // console.log("loopBooks", loopBooks)
+        console.log("books", books)
+        
+    }
+    console.log("after edit books", books)
+
     const getBook = books.map((book, index)=> {
-        console.log(book.title)
+        console.log("book-title", book.title)
         return <BookList id = {book.id} title = {book.title} key={index}
-        onDelete = {deleteBookById}
+        onDelete = {deleteBookById} onEdit = {editBookById}
         />
+        console.log("books in getBook", books)
     })
 
     return(

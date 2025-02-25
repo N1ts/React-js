@@ -1,5 +1,8 @@
 import { useState } from "react";
 import BookEdit from "./BookEdit";
+import { MdDeleteOutline } from "react-icons/md";
+import { CiEdit } from "react-icons/ci";
+
 
 function BookList({id, title, onDelete, onEdit}){
     const [isEdit, SetisEdit] = useState(true)
@@ -9,44 +12,50 @@ function BookList({id, title, onDelete, onEdit}){
     }
 
     const handleEdit = ()=>{
-        console.log("handleEdit")
+        // console.log("handleEdit")
         SetisEdit(!isEdit)
-        console.log(isEdit)
+        // console.log(isEdit)
     }
 
     // let content = <BookEdit />
     return(
         <div className="booklist">
-            {isEdit ? 
-            <>
-            <div style={{textAlign: "right"}}>
-            <button onClick={handleEdit}>e</button>
-            <button style={{marginLeft: "5px"}} onClick = {handleDelete}>
-                d
-            </button>
+            {isEdit ?
+            <> 
+            <div className="book-inside-container">
+            <div className="edit">
+            <CiEdit onClick={handleEdit}/>
             </div>
-            <img src="" alt="book" style={{marginTop: "6px"}}/>
+            <div className="delete" >
+            <MdDeleteOutline style={{marginLeft: "5px"}} onClick = {handleDelete}/>
+
+            </div>
+            </div>
             <div className="booklist-title">
-            {id}
+            {/* {id} */}
             {title}
             </div>
-            </> 
+            </>
 
             : 
+            <>
+            <div className="book-inside-container">
+            {/* <div style={{textAlign: "right"}} className="edit"> */}
+            <div className="edit">
+            <CiEdit onClick={handleEdit}/>
+            </div>
+            <div className="delete">
+            <MdDeleteOutline style={{marginLeft: "5px"}} onClick = {handleDelete}/>
+            </div>
+            </div>
             <div>
-            <div style={{textAlign: "right"}}>
-            <button onClick={handleEdit}>e</button>
-            <button style={{marginLeft: "5px"}} onClick = {handleDelete}>
-                d
-            </button>
-            <BookEdit onEdit = {onEdit} title={title} id={id}/>
+            <BookEdit onEdit = {onEdit} title={title} id={id} onChangeTitle = {handleEdit}/>
             </div>
-            <img src="" alt="book" style={{marginTop: "6px"}}/>
-            <div className="booklist-title">
-            {id}
-            {title}
-            </div>
-            </div>
+            {/* <div className="booklist-title"> */}
+            {/* {id} */}
+            {/* {title} */}
+            </>
+            
 }
         </div>
     )

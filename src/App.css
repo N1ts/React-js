@@ -10,6 +10,7 @@
     align-self: center;
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: greenyellow;
     
 }
 
@@ -25,18 +26,47 @@ h4{
 
 .button{
     margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+    background-color: white;
+    background-color: greenyellow;
 }
 
 .booklist{
     padding: 10px;
-    border: 1px solid brown;
+    /* border: 1px solid brown; */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
     height: 120px;
     width: 120px;
-    margin: auto;
+    margin: 15px 25px 15px 30px;
+    align-items: end;
+    display: block;
 }
 
 .booklist-title{
-    margin-top: 60px;
+    margin-top: 40px;
     font-size: 20px;
     font-weight: 500;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+}
+
+.edit{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    /* border: 1px solid; */
+    width: 20px;
+    margin-right: 5px;
+    
+}
+
+.delete{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    /* border: 1px solid; */
+    width: 20px;
+
+}
+
+.book-inside-container{
+    align-items: end;
+    display: flex;
+    justify-content: end;
+    height: 20px;
 }

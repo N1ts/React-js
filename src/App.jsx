@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import BookCreate from './Components/BookCreate';
 import './App.css'
 import BookList from './Components/BookList';
+import axios from 'axios';
 
 
 function App(){
@@ -11,15 +12,28 @@ function App(){
         return Math.floor(Math.random() * 20);
       }
 
-    const createTitle = (title)=>{
-        const id = getRandomInt()
-        const updatedBooks = [...books, {id: id, title: title}]
+    const createTitle = async (title)=>{
+        const response = await axios.post('http://localhost:3001/books', {
+            title: title
+        })
+        console.log(response)
+        const updatedBooks = [...books, response.data]
         setBooks(updatedBooks)
-        // console.log("create-title", books)
+        console.log("create-title", books)
     }
 
-    const deleteBookById = (id)=>{
+    const fetchBook = async()=>{
+        const response = await axios.get("http://localhost:3001/books")
+        setBooks(response.data)
+    }
+
+    useEffect(()=>{
+        fetchBook()
+    }, [])
+
+    const deleteBookById = async (id)=>{
         // console.log(id)
+        await axios.delete(`http://localhost:3001/books/${id}`)
         const deletedBook = books.filter((book)=>
             {   
                 return book.id !==id
@@ -27,12 +41,16 @@ function App(){
         setBooks(deletedBook)
     }
 
-    const editBookById = (id, title)=>{
+    const editBookById = async (id, title)=>{
         // console.log("edit book id:" , id, title)
+        const response = await axios.put(`http://localhost:3001/books/${id}`,{
+            title: title
+        })
+
         const loopBooks = books.map((book)=>{
             if(book.id==id){
                 console.log("matched", id)
-                const updatedBook = {...book, title: title}
+                const updatedBook = {...book, title: response.data.title}
                 return updatedBook
             }
             return book;

@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { BookContext } from "../Context/bookContext"
 // import '../App.css'
 
-function BookCreate({onCreate}){
+function BookCreate(){
     const [value, setValue] = useState('')
+    const {createTitle} = useContext(BookContext)
+    // console.log("bookcreate", book.createTitle)
 
     // To set input entered value
     const handleChange =(event)=>{
@@ -13,7 +16,7 @@ function BookCreate({onCreate}){
     // To prevent default for submission and provide value(title) to app parent component
     const handleSubmit = (event)=>{
         event.preventDefault()
-        onCreate(value)
+        createTitle(value)
         setValue('')
     }
 

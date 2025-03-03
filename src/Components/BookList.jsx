@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import BookEdit from "./BookEdit";
 import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
+import { BookContext } from "../Context/bookContext";
 
 
-function BookList({id, title, onDelete, onEdit}){
+function BookList({book}){
+    const {deleteBookById} = useContext(BookContext)
+    console.log("book", book)
+    
     const [isEdit, SetisEdit] = useState(true)
 
+
+
     const handleDelete = ()=>{
-        onDelete(id)
+        deleteBookById(book.id)
     }
 
     const handleEdit = ()=>{
@@ -33,7 +39,7 @@ function BookList({id, title, onDelete, onEdit}){
             </div>
             <div className="booklist-title">
             {/* {id} */}
-            {title}
+            {book.title}
             </div>
             </>
 
@@ -49,7 +55,8 @@ function BookList({id, title, onDelete, onEdit}){
             </div>
             </div>
             <div>
-            <BookEdit onEdit = {onEdit} title={title} id={id} onChangeTitle = {handleEdit}/>
+            {/* <BookEdit onEdit = {onEdit} title={title} id={id} onChangeTitle = {handleEdit}/> */}
+            <BookEdit onEdit={book} onChangeTitle = {handleEdit}/>
             </div>
             {/* <div className="booklist-title"> */}
             {/* {id} */}

@@ -2,11 +2,11 @@ import { useState, useContext } from "react";
 import BookEdit from "./BookEdit";
 import { MdDeleteOutline } from "react-icons/md";
 import { CiEdit } from "react-icons/ci";
-import { BookContext } from "../Context/bookContext";
+import useBooksContext from '../hooks/use-books-context'
 
 
 function BookList({book}){
-    const {deleteBookById} = useContext(BookContext)
+    const {deleteBookById} = useBooksContext()
     console.log("book", book)
     
     const [isEdit, SetisEdit] = useState(true)

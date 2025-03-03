@@ -3,10 +3,10 @@ import BookCreate from './Components/BookCreate';
 import './App.css'
 import BookList from './Components/BookList';
 import axios from 'axios';
-import { BookContext } from './Context/bookContext';
+import useBooksContext from '../src/hooks/use-books-context';
 
 function App(){
-    const { books, fetchBook } = useContext(BookContext)
+    const { books, fetchBook } = useBooksContext()
     console.log(fetchBook)
 
 

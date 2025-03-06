@@ -7,7 +7,7 @@ import useBooksContext from '../hooks/use-books-context'
 
 function BookList({book}){
     const {deleteBookById} = useBooksContext()
-    console.log("book", book)
+    // console.log("book", book)
     
     const [isEdit, SetisEdit] = useState(true)
 

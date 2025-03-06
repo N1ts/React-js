@@ -19,7 +19,7 @@ export default function Provider({children}){
             console.log(response)
             const updatedBooks = [...books, response.data]
             setBooks(updatedBooks)
-            console.log("create-title", books)
+            // console.log("create-title", books)
         }
     
 
@@ -49,14 +49,6 @@ export default function Provider({children}){
             })
             setBooks(loopBooks)
         }
-        console.log("after edit books", books)
-    
-        // const getBook = books.map((book, index)=> {
-        //     // console.log("book-title", book.title)
-        //     return <BookList id = {book.id} title = {book.title} key={index}
-        //     onDelete = {deleteBookById} onEdit = {editBookById}
-        //     />
-        // })
 
 
     return (

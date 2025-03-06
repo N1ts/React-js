@@ -6,11 +6,11 @@ function BookEdit({onEdit, onChangeTitle}){
     const [value, setValue] = useState(onEdit.title)
     
     const handleChange = (event)=>{
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setValue(event.target.value)
-        console.log("value", value)
+        // console.log("value", value)
     } 
-    console.log("value", value)
+    // console.log("value", value)
 
     const handleSubmit = (event)=>{
         event.preventDefault();

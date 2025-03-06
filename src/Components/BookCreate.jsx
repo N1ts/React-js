@@ -1,10 +1,10 @@
-import { useContext, useState } from "react"
-import { BookContext } from "../Context/bookContext"
+import { useState } from "react"
+import useBooksContext from "../hooks/use-books-context"
 // import '../App.css'
 
 function BookCreate(){
     const [value, setValue] = useState('')
-    const {createTitle} = useContext(BookContext)
+    const {createTitle} = useBooksContext()
     // console.log("bookcreate", book.createTitle)
 
     // To set input entered value

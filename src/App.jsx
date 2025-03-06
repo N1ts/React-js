@@ -7,7 +7,7 @@ import useBooksContext from '../src/hooks/use-books-context';
 
 function App(){
     const { books, fetchBook } = useBooksContext()
-    console.log(fetchBook)
+    // console.log(fetchBook)
 
 
     useEffect(()=>{
